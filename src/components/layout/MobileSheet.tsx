@@ -20,8 +20,8 @@ export default function MobileSheet({ open, onClose }: { open: boolean; onClose:
         (el) => el.offsetParent !== null,
       );
       if (!items.length) return;
-      const firstEl = items[0];
-      const lastEl = items[items.length - 1];
+      const firstEl = items[0]!;
+      const lastEl = items[items.length - 1]!;
       if (e.shiftKey && document.activeElement === firstEl) {
         e.preventDefault();
         lastEl.focus();

@@ -112,7 +112,7 @@ export default function HeroBackground() {
     let visible = true;
     const t0 = performance.now();
 
-    function palette() {
+    const palette = () => {
       const cs = getComputedStyle(document.documentElement);
       const g = (n: string) => cs.getPropertyValue(n);
       gl.useProgram(prog);
@@ -121,9 +121,9 @@ export default function HeroBackground() {
       gl.uniform3fv(U('cB'), hex(g('--ochre')));
       gl.uniform3fv(U('cC'), hex(g('--forest')));
       gl.uniform1f(U('u_alpha'), document.documentElement.getAttribute('data-theme') === 'dark' ? 0.5 : 1);
-    }
+    };
 
-    function size() {
+    const size = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
       const r = host!.getBoundingClientRect();
       if (!r.width || !r.height) return;
@@ -131,13 +131,13 @@ export default function HeroBackground() {
       canvas!.height = Math.round(r.height * dpr);
       gl.viewport(0, 0, canvas!.width, canvas!.height);
       gl.uniform2f(U('u_res'), canvas!.width, canvas!.height);
-    }
+    };
 
     const onPointer = (e: PointerEvent) => {
       const r = host.getBoundingClientRect();
       mouse = [(e.clientX - r.left) / r.width, 1 - (e.clientY - r.top) / r.height];
     };
-    const io = new IntersectionObserver((es) => (visible = es[0].isIntersecting));
+    const io = new IntersectionObserver((es) => (visible = (es[0]?.isIntersecting ?? visible)));
     const ro = new ResizeObserver(size);
 
     size();
