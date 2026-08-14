@@ -2,7 +2,7 @@ export const site = {
   name: 'Maria Namata',
   role: 'Front-end developer',
   location: 'Kampala, Uganda',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://marianamata.dev',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://marianamata.dev',
   email: 'namatamaria086@gmail.com',
   github: 'https://github.com/MariaNamata086',
   linkedin: 'https://www.linkedin.com/in/marianamata-front-enddeveloper/',
