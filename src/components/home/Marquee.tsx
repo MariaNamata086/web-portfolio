@@ -8,7 +8,10 @@ export default function Marquee() {
   const [paused, setPaused] = useState(false);
 
   // WCAG 2.2.2 needs a pause for anything auto-moving past five seconds.
+  // Starts unpaused to match SSR output, then corrects post-mount once
+  // matchMedia is available, rather than risking a hydration mismatch.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setPaused(true);
   }, []);
 

@@ -26,6 +26,9 @@ export default function Playground() {
   }
 
   useEffect(() => {
+    // Starts empty to match SSR output; reads the real computed values from
+    // the DOM post-mount, then again whenever the theme/token set changes.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     readTokens();
     window.addEventListener('themechange', readTokens);
     return () => window.removeEventListener('themechange', readTokens);
@@ -81,7 +84,7 @@ export default function Playground() {
               </p>
 
               <div className='mt-5.5'>
-                <label className='mb-2.5 block font-[family-name:var(--font-mono)] text-[10px] tracking-[0.1em] uppercase opacity-70'>Accent</label>
+                <span className='mb-2.5 block font-[family-name:var(--font-mono)] text-[10px] tracking-[0.1em] uppercase opacity-70'>Accent</span>
                 <div className='flex flex-wrap gap-2.5'>
                   {presets.map((p, i) => (
                     <button
@@ -104,7 +107,7 @@ export default function Playground() {
               </div>
 
               <div className='mt-5.5'>
-                <label className='mb-2.5 block font-[family-name:var(--font-mono)] text-[10px] tracking-[0.1em] uppercase opacity-70'>Motion</label>
+                <span className='mb-2.5 block font-[family-name:var(--font-mono)] text-[10px] tracking-[0.1em] uppercase opacity-70'>Motion</span>
                 <label className='inline-flex cursor-pointer items-center gap-2.5 text-[15px]'>
                   <input type='checkbox' checked={motion} onChange={(e) => toggleMotion(e.target.checked)} />
                   Animations on

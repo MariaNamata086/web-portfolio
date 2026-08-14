@@ -10,6 +10,8 @@ export default function CountUp({ to, suffix = '' }: { to: number; suffix?: stri
   useEffect(() => {
     if (!inView) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Skip straight to the end value instead of animating.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setN(to);
       return;
     }

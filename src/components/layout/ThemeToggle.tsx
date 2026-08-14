@@ -5,8 +5,12 @@ import { useEffect, useState } from 'react';
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
+  // Starts 'light' to match SSR output; the blocking script in the root
+  // layout already sets the real theme on the DOM before paint, this just
+  // syncs React state to it post-mount without risking a hydration mismatch.
   useEffect(() => {
     const current = (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') ?? 'light';
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(current);
   }, []);
 

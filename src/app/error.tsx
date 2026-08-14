@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect } from 'react';
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
@@ -27,12 +28,12 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
           >
             Try again
           </button>
-          <a
+          <Link
             href='/'
             className='rounded-[var(--r-pill)] border border-[var(--line)] px-5.5 py-3 text-[15px] font-medium transition hover:bg-[var(--ink)] hover:text-[var(--paper)]'
           >
             Back to home
-          </a>
+          </Link>
         </div>
         {error.digest && (
           <p className='mt-8 font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.09em] text-[var(--ink-faint)] uppercase'>

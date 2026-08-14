@@ -1,20 +1,24 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const compat = new FlatCompat({ baseDirectory: __dirname });
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import prettierConfig from 'eslint-config-prettier';
 
 const eslintConfig = [
   { ignores: ['.next/**', 'node_modules/**', 'next-env.d.ts'] },
 
   // next/core-web-vitals already brings a subset of jsx-a11y. The full
   // recommended set is worth it on a site that claims accessibility as a skill.
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'plugin:jsx-a11y/recommended'),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
+  // Next's config already registers the jsx-a11y plugin, so only merge in
+  // the extra rules/language options from the full recommended set.
+  {
+    languageOptions: jsxA11y.flatConfigs.recommended.languageOptions,
+    rules: jsxA11y.flatConfigs.recommended.rules,
+  },
 
   // Must stay last: turns off every rule that would fight Prettier.
-  ...compat.extends('prettier'),
+  prettierConfig,
 
   {
     rules: {

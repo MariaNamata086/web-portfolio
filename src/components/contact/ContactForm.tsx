@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { site } from '@/lib/site';
 
 type Intent = 'role' | 'project' | 'other';
@@ -26,7 +26,10 @@ export default function ContactForm() {
   const [intent, setIntent] = useState<Intent>('role');
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, boolean>>({});
-  const loadedAt = useRef(Date.now());
+  const loadedAt = useRef<number | null>(null);
+  useEffect(() => {
+    loadedAt.current = Date.now();
+  }, []);
   const shape = shapes[intent];
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -46,7 +49,7 @@ export default function ContactForm() {
     }
 
     // Show success either way. An error just teaches the bot to retry.
-    if (data.website || Date.now() - loadedAt.current < 3000) {
+    if (data.website || Date.now() - (loadedAt.current ?? 0) < 3000) {
       setState('done');
       return;
     }
