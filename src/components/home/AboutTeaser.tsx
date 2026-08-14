@@ -3,32 +3,32 @@ import CountUp from '@/components/ui/CountUp';
 import { Reveal, Stagger } from '@/components/ui/Reveal';
 
 const stats = [
-  { n: 3, suffix: '+', label: 'Years shipping', cls: 'bg-[var(--clay)] text-[var(--on-clay)]' },
-  { n: 4, suffix: '', label: 'Sites in production', cls: 'bg-[var(--forest)] text-[var(--on-forest)]' },
-  { n: 1, suffix: '', label: 'Mobile app', cls: 'bg-[var(--ochre)] text-[var(--on-ochre)]' },
-  { n: 4, suffix: '', label: 'Industries', cls: 'bg-[var(--plum)] text-[#FFF0F5]' },
+  { n: 3, suffix: '+', label: 'Years shipping', cls: 'bg-clay text-on-clay' },
+  { n: 4, suffix: '', label: 'Sites in production', cls: 'bg-forest text-on-forest' },
+  { n: 1, suffix: '', label: 'Mobile app', cls: 'bg-ochre text-on-ochre' },
+  { n: 4, suffix: '', label: 'Industries', cls: 'bg-plum text-[#FFF0F5]' },
 ];
 
 export default function AboutTeaser() {
   return (
-    <section id='about' className='px-[22px] py-16 md:px-10 md:py-25'>
-      <div className='mx-auto max-w-[var(--maxw)]'>
+    <section id='about' className='px-5.5 py-16 md:px-10 md:py-25'>
+      <div className='mx-auto max-w-site'>
         <Reveal variant='rv'>
-          <div className='grid items-start gap-9 rounded-[var(--r-panel)] border border-[var(--line-soft)] bg-[var(--paper-2)] p-6 md:grid-cols-[0.9fr_1.1fr] md:gap-14 md:p-14'>
+          <div className='grid items-start gap-9 rounded-panel border border-line-soft bg-paper-2 p-6 md:grid-cols-[0.9fr_1.1fr] md:gap-14 md:p-14'>
             <div>
-              <span className='mb-3.5 inline-block rounded-[var(--r-pill)] bg-[var(--clay)] px-3 py-1.5 font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.14em] text-[var(--on-clay)] uppercase'>
+              <span className='mb-3.5 inline-block rounded-pill bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
                 03 / About
               </span>
-              <h2 className='max-w-[14ch] font-[family-name:var(--font-display)] text-[clamp(32px,4vw,50px)] leading-none font-bold tracking-[-0.04em]'>
+              <h2 className='max-w-[14ch] font-display text-[clamp(32px,4vw,50px)] leading-none font-bold tracking-[-0.04em]'>
                 A bit about me
               </h2>
               <Stagger className='mt-7.5 grid grid-cols-2 gap-3'>
                 {stats.map((s) => (
                   <div key={s.label} className={`rounded-2xl p-5 ${s.cls}`}>
-                    <b className='block font-[family-name:var(--font-display)] text-[36px] leading-none font-bold tracking-[-0.04em]'>
+                    <b className='block font-display text-[36px] leading-none font-bold tracking-[-0.04em]'>
                       <CountUp to={s.n} suffix={s.suffix} />
                     </b>
-                    <span className='mt-1.5 block font-[family-name:var(--font-mono)] text-[10px] tracking-[0.08em] uppercase opacity-85'>
+                    <span className='mt-1.5 block font-mono text-[10px] tracking-[0.08em] uppercase opacity-85'>
                       {s.label}
                     </span>
                   </div>
@@ -36,8 +36,8 @@ export default function AboutTeaser() {
               </Stagger>
             </div>
 
-            <div className='text-[17.5px] leading-[1.72] text-[var(--ink-soft)]'>
-              <p className='mb-5 text-[21px] leading-[1.6] text-[var(--ink)]'>
+            <div className='text-[17.5px] leading-[1.72] text-ink-soft'>
+              <p className='mb-5 text-[21px] leading-[1.6] text-ink'>
                 I taught myself to code. No bootcamp, no computer science degree, just a lot of evenings, a lot of
                 documentation, and early projects that were genuinely bad before they got better.
               </p>
@@ -53,7 +53,7 @@ export default function AboutTeaser() {
                 real people, including one of mine.
               </p>
               <p>
-                <Link href='/about' className='border-b-2 border-[var(--clay)] pb-0.5 font-medium text-[var(--clay)]'>
+                <Link href='/about' className='border-b-2 border-clay pb-0.5 font-medium text-clay'>
                   The longer version is on the about page →
                 </Link>
               </p>

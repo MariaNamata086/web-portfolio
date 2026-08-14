@@ -30,22 +30,22 @@ export default function WorkSection() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const borders = ['border-t-[var(--clay)]', 'border-t-[var(--forest)]', 'border-t-[var(--ochre)]', 'border-t-[var(--plum)]'];
+  const borders = ['border-t-clay', 'border-t-forest', 'border-t-ochre', 'border-t-plum'];
 
   return (
-    <section id='work' className='px-[22px] py-16 md:px-10 md:py-25'>
-      <div className='mx-auto max-w-[var(--maxw)]'>
+    <section id='work' className='px-5.5 py-16 md:px-10 md:py-25'>
+      <div className='mx-auto max-w-site'>
         <div className='mb-12 flex flex-wrap items-end justify-between gap-10'>
           <Reveal variant='rvL'>
-            <span className='mb-3.5 inline-block rounded-[var(--r-pill)] bg-[var(--clay)] px-3 py-1.5 font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.14em] text-[var(--on-clay)] uppercase'>
+            <span className='mb-3.5 inline-block rounded-pill bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
               01 / Work
             </span>
-            <h2 className='max-w-[14ch] font-[family-name:var(--font-display)] text-[clamp(32px,4vw,50px)] leading-none font-bold tracking-[-0.04em]'>
+            <h2 className='max-w-[14ch] font-display text-[clamp(32px,4vw,50px)] leading-none font-bold tracking-[-0.04em]'>
               Things I&rsquo;ve built
             </h2>
           </Reveal>
-          <Reveal variant='rvR' className='max-w-[400px]'>
-            <p className='text-[16px] text-[var(--ink-soft)]'>
+          <Reveal variant='rvR' className='max-w-100'>
+            <p className='text-[16px] text-ink-soft'>
               Most of these are live right now. Open them, click around, break something if you can.
             </p>
           </Reveal>
@@ -53,18 +53,18 @@ export default function WorkSection() {
 
         <div className='grid items-start gap-6 md:grid-cols-[200px_1fr] md:gap-11'>
           <div className='static flex items-baseline gap-3.5 md:sticky md:top-30 md:block'>
-            <div className='font-[family-name:var(--font-display)] text-[62px] leading-none font-bold tracking-[-0.05em] text-[var(--clay)]'>
+            <div className='font-display text-[62px] leading-none font-bold tracking-tighter text-clay'>
               {String(active + 1).padStart(2, '0')}
-              <small className='text-[19px] font-normal text-[var(--ink-faint)]'> / {String(projects.length).padStart(2, '0')}</small>
+              <small className='text-[19px] font-normal text-ink-faint'> / {String(projects.length).padStart(2, '0')}</small>
             </div>
             <div className='flex flex-row flex-wrap gap-2 md:mt-5 md:flex-col'>
               {projects.map((p, i) => (
                 <span
                   key={p.slug}
-                  className={`font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.06em] uppercase transition-all duration-300 ${
+                  className={`font-mono text-[10.5px] tracking-[0.06em] uppercase transition-all duration-300 ${
                     i === active
-                      ? 'translate-x-1 rounded-[var(--r-pill)] bg-[var(--forest)] px-2.5 py-1.5 text-[var(--on-forest)]'
-                      : 'text-[var(--ink-faint)]'
+                      ? 'translate-x-1 rounded-pill bg-forest px-2.5 py-1.5 text-on-forest'
+                      : 'text-ink-faint'
                   }`}
                 >
                   {p.title}
@@ -80,11 +80,11 @@ export default function WorkSection() {
                   ref={(el: HTMLElement | null) => {
                     cards.current[i] = el;
                   }}
-                  className={`group grid gap-7 rounded-[var(--r-card)] border border-[var(--line-soft)] border-t-4 bg-[var(--paper-2)] p-6.5 transition-transform duration-500 hover:-translate-y-2 md:grid-cols-[46%_1fr] md:items-center ${borders[i % 4]}`}
+                  className={`group grid gap-7 rounded-card border border-line-soft border-t-4 bg-paper-2 p-6.5 transition-transform duration-500 hover:-translate-y-2 md:grid-cols-[46%_1fr] md:items-center ${borders[i % 4]}`}
                 >
                   {p.shot && (
                     <div
-                      className='relative aspect-[16/10] overflow-hidden rounded-[var(--r-media)] border border-[var(--line)]'
+                      className='relative aspect-16/10 overflow-hidden rounded-media border border-line'
                       style={{ background: p.shot.dark ? '#000' : 'var(--paper-3)' }}
                     >
                       <Image
@@ -96,19 +96,19 @@ export default function WorkSection() {
                     </div>
                   )}
                   <div>
-                    <span className='mb-2.5 inline-block rounded-[var(--r-pill)] bg-[var(--clay-soft)] px-2.5 py-1 font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.1em] text-[var(--clay)] uppercase'>
+                    <span className='mb-2.5 inline-block rounded-pill bg-clay-soft px-2.5 py-1 font-mono text-[10.5px] tracking-widest text-clay uppercase'>
                       {p.role}
                     </span>
-                    <h3 className='font-[family-name:var(--font-display)] text-[24px] leading-[1.12] font-bold tracking-[-0.028em]'>
+                    <h3 className='font-display text-[24px] leading-[1.12] font-bold tracking-[-0.028em]'>
                       {p.title}
                     </h3>
-                    <p className='mt-3 text-[15.5px] leading-[1.62] text-[var(--ink-soft)]'>{p.body}</p>
+                    <p className='mt-3 text-[15.5px] leading-[1.62] text-ink-soft'>{p.body}</p>
                     {p.liveUrl && (
                       <a
                         href={p.liveUrl}
                         target='_blank'
                         rel='noreferrer'
-                        className='mt-4 inline-flex items-center gap-2 border-b-2 border-[var(--clay)] pb-0.5 text-[14px] font-medium text-[var(--clay)]'
+                        className='mt-4 inline-flex items-center gap-2 border-b-2 border-clay pb-0.5 text-[14px] font-medium text-clay'
                       >
                         {p.liveUrl.replace('https://', '')} <span aria-hidden='true'>↗</span>
                       </a>
@@ -117,7 +117,7 @@ export default function WorkSection() {
                       {p.tags.map((t) => (
                         <span
                           key={t}
-                          className='rounded-[var(--r-pill)] bg-[var(--forest-soft)] px-3 py-1.5 font-[family-name:var(--font-mono)] text-[10px] tracking-[0.05em] text-[var(--forest)] uppercase'
+                          className='rounded-pill bg-forest-soft px-3 py-1.5 font-mono text-[10px] tracking-wider text-forest uppercase'
                         >
                           {t}
                         </span>

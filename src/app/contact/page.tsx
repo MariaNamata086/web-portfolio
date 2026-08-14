@@ -24,29 +24,29 @@ const faqs = [
 
 export default function ContactPage() {
   return (
-    <div className='mx-auto max-w-[var(--maxw)] px-[22px] md:px-10'>
+    <div className='mx-auto max-w-site px-5.5 md:px-10'>
       <header className='max-w-[22ch] pt-15 pb-11'>
-        <span className='mb-4.5 inline-block rounded-[var(--r-pill)] bg-[var(--clay)] px-3 py-1.5 font-[family-name:var(--font-mono)] text-[10.5px] tracking-[0.14em] text-[var(--on-clay)] uppercase'>
+        <span className='mb-4.5 inline-block rounded-pill bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
           Contact
         </span>
-        <h1 className='font-[family-name:var(--font-display)] text-[clamp(42px,5.6vw,70px)] leading-[0.97] font-extrabold tracking-[-0.045em]'>
-          Start a <span className='font-[family-name:var(--font-serif)] font-normal text-[var(--clay)] italic'>conversation</span>
+        <h1 className='font-display text-[clamp(42px,5.6vw,70px)] leading-[0.97] font-extrabold tracking-[-0.045em]'>
+          Start a <span className='font-serif font-normal text-clay italic'>conversation</span>
         </h1>
-        <p className='mt-5 max-w-[52ch] text-[20px] text-[var(--ink-soft)]'>
+        <p className='mt-5 max-w-[52ch] text-[20px] text-ink-soft'>
           Pick what fits and the form will ask for the right things. I read every message myself and reply within a day,
           usually sooner.
         </p>
       </header>
 
       <div className='grid items-start gap-11 pb-20 md:grid-cols-[1.25fr_0.75fr]'>
-        <div className='relative rounded-[var(--r-card)] border border-[var(--line-soft)] bg-[var(--paper-2)] p-6 md:p-8.5'>
+        <div className='relative rounded-card border border-line-soft bg-paper-2 p-6 md:p-8.5'>
           <ContactForm />
         </div>
 
         <aside>
-          <div className='mb-4 rounded-[18px] border border-[var(--forest)] bg-[var(--forest)] p-6 text-[var(--on-forest)]'>
-            <h2 className='font-[family-name:var(--font-display)] text-[20px] font-bold tracking-[-0.025em]'>
-              <span className='mr-2 inline-block h-2 w-2 rounded-full bg-[var(--ochre)]' />
+          <div className='mb-4 rounded-[18px] border border-forest bg-forest p-6 text-on-forest'>
+            <h2 className='font-display text-[20px] font-bold tracking-tight'>
+              <span className='mr-2 inline-block h-2 w-2 rounded-full bg-ochre' />
               Open to work
             </h2>
             <p className='mt-2 text-[15.5px] opacity-88'>
@@ -54,17 +54,17 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className='mb-4 rounded-[18px] border border-[var(--line-soft)] bg-[var(--paper-2)] p-6'>
-            <h2 className='font-[family-name:var(--font-display)] text-[20px] font-bold tracking-[-0.025em]'>Reach me directly</h2>
+          <div className='mb-4 rounded-[18px] border border-line-soft bg-paper-2 p-6'>
+            <h2 className='font-display text-[20px] font-bold tracking-tight'>Reach me directly</h2>
             <div className='mt-3 flex flex-col'>
               {[
                 { small: 'Email', label: site.email, href: `mailto:${site.email}` },
                 { small: 'Code', label: 'GitHub', href: site.github },
                 { small: 'Professional', label: 'LinkedIn', href: site.linkedin },
               ].map((c) => (
-                <a key={c.label} href={c.href} className='flex items-center justify-between border-b border-[var(--line)] py-3.5 text-[15.5px] transition-all duration-300 last:border-0 hover:pl-2 hover:text-[var(--clay)]'>
+                <a key={c.label} href={c.href} className='flex items-center justify-between border-b border-line py-3.5 text-[15.5px] transition-all duration-300 last:border-0 hover:pl-2 hover:text-clay'>
                   <span>
-                    <small className='mb-0.5 block font-[family-name:var(--font-mono)] text-[9.5px] tracking-[0.08em] text-[var(--ink-faint)] uppercase'>{c.small}</small>
+                    <small className='mb-0.5 block font-mono text-[9.5px] tracking-[0.08em] text-ink-faint uppercase'>{c.small}</small>
                     {c.label}
                   </span>
                   <span aria-hidden='true'>↗</span>
@@ -73,10 +73,10 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className='rounded-[18px] border border-[var(--line-soft)] bg-[var(--paper-2)] p-6'>
-            <h2 className='font-[family-name:var(--font-display)] text-[20px] font-bold tracking-[-0.025em]'>Where I am</h2>
-            <p className='mt-2 text-[15.5px] text-[var(--ink-soft)]'>Kampala, Uganda. UTC+3.</p>
-            <div className='mt-3.5 font-[family-name:var(--font-mono)] text-[11px] leading-[1.9] tracking-[0.06em] text-[var(--ink-faint)]'>
+          <div className='rounded-[18px] border border-line-soft bg-paper-2 p-6'>
+            <h2 className='font-display text-[20px] font-bold tracking-tight'>Where I am</h2>
+            <p className='mt-2 text-[15.5px] text-ink-soft'>Kampala, Uganda. UTC+3.</p>
+            <div className='mt-3.5 font-mono text-[11px] leading-[1.9] tracking-[0.06em] text-ink-faint'>
               Overlap with London · 6 hours
               <br />
               Overlap with Berlin · 7 hours
@@ -89,16 +89,16 @@ export default function ContactPage() {
         </aside>
       </div>
 
-      <section className='border-t border-[var(--line)] pt-17 pb-22'>
-        <h2 className='mb-7.5 font-[family-name:var(--font-display)] text-[clamp(28px,3.4vw,40px)] font-bold tracking-[-0.04em]'>Before you write</h2>
+      <section className='border-t border-line pt-17 pb-22'>
+        <h2 className='mb-7.5 font-display text-[clamp(28px,3.4vw,40px)] font-bold tracking-[-0.04em]'>Before you write</h2>
         {faqs.map((f) => (
-          <details key={f.q} className='group border-b border-[var(--line)] py-5.5'>
-            <summary className='flex list-none cursor-pointer items-center justify-between gap-5 font-[family-name:var(--font-display)] text-[19px] font-semibold tracking-[-0.02em] [&::-webkit-details-marker]:hidden'>
+          <details key={f.q} className='group border-b border-line py-5.5'>
+            <summary className='flex list-none cursor-pointer items-center justify-between gap-5 font-display text-[19px] font-semibold tracking-[-0.02em] [&::-webkit-details-marker]:hidden'>
               {f.q}
-              <span aria-hidden='true' className='text-[22px] text-[var(--clay)] transition-transform group-open:rotate-45'>+</span>
+              <span aria-hidden='true' className='text-[22px] text-clay transition-transform group-open:rotate-45'>+</span>
             </summary>
             {f.a.map((p, i) => (
-              <p key={i} className='mt-3 max-w-[66ch] text-[16.5px] text-[var(--ink-soft)]'>
+              <p key={i} className='mt-3 max-w-[66ch] text-[16.5px] text-ink-soft'>
                 {p}
               </p>
             ))}

@@ -69,12 +69,12 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
       ref={panelRef}
       role='dialog'
       aria-label="Chat with Maria's assistant"
-      className='fixed right-3 bottom-3 left-3 z-90 flex max-h-[min(640px,calc(100vh-52px))] flex-col overflow-hidden rounded-3xl border border-[var(--line)] bg-[var(--paper)] shadow-[0_24px_70px_rgba(0,0,0,0.3)] md:right-6.5 md:bottom-6.5 md:left-auto md:w-[392px]'
+      className='fixed right-3 bottom-3 left-3 z-90 flex max-h-[min(640px,calc(100vh-52px))] flex-col overflow-hidden rounded-3xl border border-line bg-paper shadow-[0_24px_70px_rgba(0,0,0,0.3)] md:right-6.5 md:bottom-6.5 md:left-auto md:w-[392px]'
     >
-      <div className='flex items-center justify-between bg-[var(--forest)] px-5 py-4 text-[var(--on-forest)]'>
+      <div className='flex items-center justify-between bg-forest px-5 py-4 text-on-forest'>
         <div>
-          <b className='font-[family-name:var(--font-display)] text-[16px] font-semibold'>Ask about my work</b>
-          <small className='mt-0.5 block font-[family-name:var(--font-mono)] text-[10px] tracking-[0.07em] uppercase opacity-70'>
+          <b className='font-display text-[16px] font-semibold'>Ask about my work</b>
+          <small className='mt-0.5 block font-mono text-[10px] tracking-[0.07em] uppercase opacity-70'>
             Trained on Maria&rsquo;s projects
           </small>
         </div>
@@ -89,8 +89,8 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
             key={i}
             className={`max-w-[86%] rounded-[18px] px-4 py-3.5 text-[15px] leading-[1.55] ${
               m.role === 'assistant'
-                ? 'self-start rounded-bl-[6px] border border-[var(--line-soft)] bg-[var(--paper-2)]'
-                : 'self-end rounded-br-[6px] bg-[var(--clay)] text-[var(--on-clay)]'
+                ? 'self-start rounded-bl-[6px] border border-line-soft bg-paper-2'
+                : 'self-end rounded-br-[6px] bg-clay text-on-clay'
             }`}
           >
             {m.text}
@@ -98,30 +98,30 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
         ))}
 
         {busy && (
-          <div className='self-start rounded-[18px] rounded-bl-[6px] border border-[var(--line-soft)] bg-[var(--paper-2)] px-4 py-3.5'>
-            <span className='inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--ink-faint)]' />
-            <span className='mx-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--ink-faint)]' />
-            <span className='inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[var(--ink-faint)]' />
+          <div className='self-start rounded-[18px] rounded-bl-[6px] border border-line-soft bg-paper-2 px-4 py-3.5'>
+            <span className='inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-ink-faint' />
+            <span className='mx-1 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-ink-faint' />
+            <span className='inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-ink-faint' />
           </div>
         )}
 
         {error === 'rate' && (
-          <div className='rounded-xl bg-[var(--ochre-soft)] px-4 py-3.5 text-[13.5px] text-[var(--ochre-ink)]'>
-            <b className='mb-1 block font-[family-name:var(--font-display)] text-[14.5px] font-semibold'>Take it to Maria</b>
+          <div className='rounded-xl bg-ochre-soft px-4 py-3.5 text-[13.5px] text-ochre-ink'>
+            <b className='mb-1 block font-display text-[14.5px] font-semibold'>Take it to Maria</b>
             That is a lot of good questions, and I have hit my limit for the hour. She reads everything herself and replies
             within a day. <a href='/contact' className='font-semibold underline'>Open the contact form</a>
           </div>
         )}
         {error === 'off' && (
-          <div className='rounded-xl bg-[var(--ochre-soft)] px-4 py-3.5 text-[13.5px] text-[var(--ochre-ink)]'>
-            <b className='mb-1 block font-[family-name:var(--font-display)] text-[14.5px] font-semibold'>The assistant is off right now</b>
+          <div className='rounded-xl bg-ochre-soft px-4 py-3.5 text-[13.5px] text-ochre-ink'>
+            <b className='mb-1 block font-display text-[14.5px] font-semibold'>The assistant is off right now</b>
             It runs on a monthly budget and has used this month&rsquo;s. Everything it knows is on the site anyway, and Maria
             answers faster. <a href='/contact' className='font-semibold underline'>Send her a message</a>
           </div>
         )}
         {error === 'network' && (
-          <div className='rounded-xl border border-[var(--danger)] bg-[var(--danger-soft)] px-4 py-3.5 text-[13.5px] text-[var(--danger)]'>
-            <b className='mb-1 block font-[family-name:var(--font-display)] text-[14.5px] font-semibold'>That did not send</b>
+          <div className='rounded-xl border border-danger bg-danger-soft px-4 py-3.5 text-[13.5px] text-danger'>
+            <b className='mb-1 block font-display text-[14.5px] font-semibold'>That did not send</b>
             This is usually the connection rather than anything you did. Try again in a moment.
           </div>
         )}
@@ -133,7 +133,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
             <button
               key={s}
               onClick={() => send(s)}
-              className='cursor-pointer rounded-[var(--r-pill)] border border-[var(--line)] px-3 py-2 text-left text-[13px] text-[var(--ink-soft)] transition hover:border-[var(--forest)] hover:bg-[var(--forest)] hover:text-[var(--on-forest)]'
+              className='cursor-pointer rounded-pill border border-line px-3 py-2 text-left text-[13px] text-ink-soft transition hover:border-forest hover:bg-forest hover:text-on-forest'
             >
               {s}
             </button>
@@ -146,16 +146,16 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
           e.preventDefault();
           send(input);
         }}
-        className='flex items-center gap-2.5 border-t border-[var(--line)] bg-[var(--paper-2)] px-4 py-3.5'
+        className='flex items-center gap-2.5 border-t border-line bg-paper-2 px-4 py-3.5'
       >
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder='Type a message…'
           aria-label='Message'
-          className='flex-1 rounded-[var(--r-pill)] border border-[var(--line)] bg-[var(--paper)] px-4 py-2.5 text-[15px] text-[var(--ink)] outline-none focus:border-[var(--clay)]'
+          className='flex-1 rounded-pill border border-line bg-paper px-4 py-2.5 text-[15px] text-ink outline-none focus:border-clay'
         />
-        <button type='submit' aria-label='Send' disabled={busy} className='h-[42px] w-[42px] cursor-pointer rounded-[var(--r-pill)] bg-[var(--clay)] text-[16px] text-[var(--on-clay)] disabled:opacity-50'>
+        <button type='submit' aria-label='Send' disabled={busy} className='h-[42px] w-[42px] cursor-pointer rounded-pill bg-clay text-[16px] text-on-clay disabled:opacity-50'>
           →
         </button>
       </form>

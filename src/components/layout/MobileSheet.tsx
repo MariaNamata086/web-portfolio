@@ -46,16 +46,16 @@ export default function MobileSheet({ open, onClose }: { open: boolean; onClose:
       role='dialog'
       aria-modal='true'
       aria-label='Menu'
-      className='fixed inset-0 z-90 flex flex-col bg-[var(--paper)] p-[22px]'
+      className='fixed inset-0 z-90 flex flex-col bg-paper p-5.5'
     >
-      <div className='mb-[18px] flex items-center justify-between'>
-        <span className='font-[family-name:var(--font-display)] text-[19px] font-extrabold tracking-[-0.03em]'>
-          maria<em className='font-[family-name:var(--font-serif)] font-normal text-[var(--clay)] not-italic'>.</em>
+      <div className='mb-4.5 flex items-center justify-between'>
+        <span className='font-display text-[19px] font-extrabold tracking-[-0.03em]'>
+          maria<em className='font-serif font-normal text-clay not-italic'>.</em>
         </span>
         <button
           onClick={onClose}
           aria-label='Close menu'
-          className='grid h-[38px] w-[38px] place-items-center rounded-[var(--r-pill)] border border-[var(--line)] bg-[var(--paper-2)] text-[var(--ink)]'
+          className='grid h-9.5 w-9.5 place-items-center rounded-pill border border-line bg-paper-2 text-ink'
         >
           ×
         </button>
@@ -66,7 +66,7 @@ export default function MobileSheet({ open, onClose }: { open: boolean; onClose:
             key={n.href}
             href={n.href}
             onClick={onClose}
-            className='border-b border-[var(--line)] py-4 font-[family-name:var(--font-display)] text-[32px] font-bold tracking-[-0.03em]'
+            className='border-b border-line py-4 font-display text-[32px] font-bold tracking-[-0.03em]'
           >
             {n.label}
           </Link>
@@ -74,7 +74,7 @@ export default function MobileSheet({ open, onClose }: { open: boolean; onClose:
         <Link
           href='/contact'
           onClick={onClose}
-          className='border-b border-[var(--line)] py-4 font-[family-name:var(--font-display)] text-[32px] font-bold tracking-[-0.03em]'
+          className='border-b border-line py-4 font-display text-[32px] font-bold tracking-[-0.03em]'
         >
           Contact
         </Link>
@@ -82,7 +82,7 @@ export default function MobileSheet({ open, onClose }: { open: boolean; onClose:
       <Link
         href='/contact'
         onClick={onClose}
-        className='mt-auto rounded-[var(--r-pill)] bg-[var(--forest)] p-4 text-center font-semibold text-[var(--on-forest)]'
+        className='mt-auto rounded-pill bg-forest p-4 text-center font-semibold text-on-forest'
       >
         Say hi
       </Link>

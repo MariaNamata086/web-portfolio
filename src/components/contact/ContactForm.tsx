@@ -71,26 +71,26 @@ export default function ContactForm() {
   if (state === 'done') {
     return (
       <div>
-        <div className='mb-5 grid h-14.5 w-14.5 place-items-center rounded-full bg-[var(--forest)] text-[26px] text-[var(--on-forest)]'>✓</div>
-        <h2 className='font-[family-name:var(--font-display)] text-[30px] font-bold tracking-[-0.03em]'>Got it, thank you</h2>
-        <p className='mt-3 max-w-[46ch] text-[var(--ink-soft)]'>
+        <div className='mb-5 grid h-14.5 w-14.5 place-items-center rounded-full bg-forest text-[26px] text-on-forest'>✓</div>
+        <h2 className='font-display text-[30px] font-bold tracking-[-0.03em]'>Got it, thank you</h2>
+        <p className='mt-3 max-w-[46ch] text-ink-soft'>
           Your message is in my inbox. I have sent a copy to the address you gave, so you have a record of what you wrote.
         </p>
-        <ol className='mt-5.5 ml-5 list-decimal text-[var(--ink-soft)]'>
+        <ol className='mt-5.5 ml-5 list-decimal text-ink-soft'>
           <li className='mb-2.5'>I read it, usually the same day</li>
           <li className='mb-2.5'>You get a real reply from me within a day, not an autoresponder</li>
           <li>If it looks like a fit, I will suggest a call and send some times</li>
         </ol>
-        <button onClick={() => setState('idle')} className='mt-6.5 cursor-pointer border-b-2 border-[var(--clay)] pb-0.5 font-medium text-[var(--clay)]'>
+        <button onClick={() => setState('idle')} className='mt-6.5 cursor-pointer border-b-2 border-clay pb-0.5 font-medium text-clay'>
           Send another message
         </button>
       </div>
     );
   }
 
-  const field = 'w-full rounded-xl border border-[var(--line)] bg-[var(--paper)] px-4 py-3.5 text-[16px] text-[var(--ink)] outline-none transition focus:border-[var(--clay)]';
-  const bad = 'border-[var(--danger)] bg-[var(--danger-soft)]';
-  const label = 'mb-2 block font-[family-name:var(--font-mono)] text-[10px] tracking-[0.1em] text-[var(--ink-faint)] uppercase';
+  const field = 'w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-[16px] text-ink outline-none transition focus:border-clay';
+  const bad = 'border-danger bg-danger-soft';
+  const label = 'mb-2 block font-mono text-[10px] tracking-[0.1em] text-ink-faint uppercase';
 
   return (
     <form onSubmit={onSubmit} noValidate aria-describedby='form-status'>
@@ -99,8 +99,8 @@ export default function ContactForm() {
       </p>
 
       {state === 'error' && (
-        <div className='mb-5.5 rounded-2xl border border-[var(--danger)] bg-[var(--danger-soft)] px-4.5 py-4 text-[15.5px] text-[var(--danger)]'>
-          <b className='mb-1 block font-[family-name:var(--font-display)] text-[16px] font-semibold'>That did not send</b>
+        <div className='mb-5.5 rounded-2xl border border-danger bg-danger-soft px-4.5 py-4 text-[15.5px] text-danger'>
+          <b className='mb-1 block font-display text-[16px] font-semibold'>That did not send</b>
           Something went wrong on my end, and your message is still in the form. Try again in a moment, or email me directly
           at <a href={`mailto:${site.email}`} className='font-medium underline'>{site.email}</a>.
         </div>
@@ -115,18 +115,18 @@ export default function ContactForm() {
               type='button'
               onClick={() => setIntent(k)}
               aria-pressed={intent === k}
-              className={`cursor-pointer rounded-[var(--r-pill)] border px-4.5 py-2.5 text-[14.5px] transition ${
-                intent === k ? 'border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)]' : 'border-[var(--line)] bg-[var(--paper)] text-[var(--ink-soft)] hover:border-[var(--ink)]'
+              className={`cursor-pointer rounded-pill border px-4.5 py-2.5 text-[14.5px] transition ${
+                intent === k ? 'border-ink bg-ink text-paper' : 'border-line bg-paper text-ink-soft hover:border-ink'
               }`}
             >
               {k === 'role' ? 'A role' : k === 'project' ? 'A project' : 'Something else'}
             </button>
           ))}
         </div>
-        <p className='mt-3.5 mb-6 text-[15px] text-[var(--ink-faint)]'>{shape.hint}</p>
+        <p className='mt-3.5 mb-6 text-[15px] text-ink-faint'>{shape.hint}</p>
       </div>
 
-      <div className='absolute -left-[9999px] h-px w-px overflow-hidden' aria-hidden='true'>
+      <div className='absolute left-[-9999px] h-px w-px overflow-hidden' aria-hidden='true'>
         <label htmlFor='website'>Website</label>
         <input type='text' id='website' name='website' tabIndex={-1} autoComplete='off' />
       </div>
@@ -135,12 +135,12 @@ export default function ContactForm() {
         <div className='mb-4.5'>
           <label className={label} htmlFor='name'>Your name</label>
           <input id='name' name='name' className={`${field} ${errors.name ? bad : ''}`} aria-invalid={errors.name} placeholder='Jane Okello' />
-          {errors.name && <p role='alert' className='mt-2 text-[14px] text-[var(--danger)]'>Please add your name so I know who I am replying to.</p>}
+          {errors.name && <p role='alert' className='mt-2 text-[14px] text-danger'>Please add your name so I know who I am replying to.</p>}
         </div>
         <div className='mb-4.5'>
           <label className={label} htmlFor='email'>Email</label>
           <input id='email' name='email' type='email' className={`${field} ${errors.email ? bad : ''}`} aria-invalid={errors.email} placeholder='jane@company.com' />
-          {errors.email && <p role='alert' className='mt-2 text-[14px] text-[var(--danger)]'>That does not look like an email address.</p>}
+          {errors.email && <p role='alert' className='mt-2 text-[14px] text-danger'>That does not look like an email address.</p>}
         </div>
       </div>
 
@@ -152,21 +152,21 @@ export default function ContactForm() {
       {intent === 'project' && (
         <div className='mb-4.5'>
           <label className={label} htmlFor='budget'>
-            Budget you have in mind <span className='font-[family-name:var(--font-body)] text-[12px] tracking-normal normal-case'>optional</span>
+            Budget you have in mind <span className='font-body text-[12px] tracking-normal normal-case'>optional</span>
           </label>
           <input id='budget' name='budget' className={field} placeholder='A range is fine, or leave it blank' />
-          <p className='mt-2 text-[13.5px] text-[var(--ink-faint)]'>Only if you have one. It is not a filter, it just saves us both a few emails.</p>
+          <p className='mt-2 text-[13.5px] text-ink-faint'>Only if you have one. It is not a filter, it just saves us both a few emails.</p>
         </div>
       )}
 
       {shape.a && (
         <div className='grid gap-3.5 sm:grid-cols-2'>
           <div className='mb-4.5'>
-            <label className={label} htmlFor='a'>{shape.a} <span className='font-[family-name:var(--font-body)] text-[12px] tracking-normal normal-case'>optional</span></label>
+            <label className={label} htmlFor='a'>{shape.a} <span className='font-body text-[12px] tracking-normal normal-case'>optional</span></label>
             <input id='a' name='a' className={field} placeholder={shape.aph} />
           </div>
           <div className='mb-4.5'>
-            <label className={label} htmlFor='b'>{shape.b} <span className='font-[family-name:var(--font-body)] text-[12px] tracking-normal normal-case'>optional</span></label>
+            <label className={label} htmlFor='b'>{shape.b} <span className='font-body text-[12px] tracking-normal normal-case'>optional</span></label>
             <input id='b' name='b' className={field} placeholder={shape.bph} />
           </div>
         </div>
@@ -175,17 +175,17 @@ export default function ContactForm() {
       <div className='mb-4.5'>
         <label className={label} htmlFor='message'>{shape.msg}</label>
         <textarea id='message' name='message' rows={5} className={`${field} ${errors.message ? bad : ''}`} aria-invalid={errors.message} placeholder={shape.mph} />
-        {errors.message && <p role='alert' className='mt-2 text-[14px] text-[var(--danger)]'>A sentence or two would help me reply properly.</p>}
+        {errors.message && <p role='alert' className='mt-2 text-[14px] text-danger'>A sentence or two would help me reply properly.</p>}
       </div>
 
       <button
         type='submit'
         disabled={state === 'sending'}
-        className='w-full cursor-pointer rounded-[var(--r-pill)] bg-[var(--clay)] px-7.5 py-4 text-[16px] font-semibold text-[var(--on-clay)] transition duration-300 hover:bg-[var(--ink)] hover:text-[var(--paper)] disabled:cursor-wait disabled:opacity-65'
+        className='w-full cursor-pointer rounded-pill bg-clay px-7.5 py-4 text-[16px] font-semibold text-on-clay transition duration-300 hover:bg-ink hover:text-paper disabled:cursor-wait disabled:opacity-65'
       >
         {state === 'sending' ? 'Sending…' : shape.btn}
       </button>
-      <p className='mt-4 text-[13.5px] leading-[1.5] text-[var(--ink-faint)]'>
+      <p className='mt-4 text-[13.5px] leading-[1.5] text-ink-faint'>
         Your message goes straight to my inbox. Nothing is stored anywhere else, and I will not add you to anything.
       </p>
     </form>

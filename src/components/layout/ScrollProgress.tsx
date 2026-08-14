@@ -25,7 +25,7 @@ export default function ScrollProgress() {
 
   return (
     <div
-      className='fixed top-0 left-0 z-100 h-[3px] bg-[var(--clay)]'
+      className='fixed top-0 left-0 z-100 h-0.75 bg-clay'
       style={{ width: `${pct}%` }}
       aria-hidden='true'
     />

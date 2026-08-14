@@ -91,6 +91,14 @@
   --color-on-clay: var(--on-clay);
   --color-on-forest: var(--on-forest);
   --color-on-ochre: var(--on-ochre);
+  --color-clay-ink: var(--clay-ink);
+  --color-forest-ink: var(--forest-ink);
+  --color-ochre-text: var(--ochre-text);
+  --container-site: var(--maxw);
+  --radius-card: var(--r-card);
+  --radius-pill: var(--r-pill);
+  --radius-panel: var(--r-panel);
+  --radius-media: var(--r-media);
   --font-display: var(--font-bricolage);
   --font-body: var(--font-instrument-sans);
   --font-serif: var(--font-instrument-serif);
