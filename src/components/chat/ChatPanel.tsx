@@ -69,7 +69,7 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
       ref={panelRef}
       role='dialog'
       aria-label="Chat with Maria's assistant"
-      className='fixed right-3 bottom-3 left-3 z-90 flex max-h-[min(640px,calc(100vh-52px))] flex-col overflow-hidden rounded-3xl border border-line bg-paper shadow-[0_24px_70px_rgba(0,0,0,0.3)] md:right-6.5 md:bottom-6.5 md:left-auto md:w-[392px]'
+      className='fixed right-3 bottom-3 left-3 z-90 flex max-h-[min(640px,calc(100vh-52px))] flex-col overflow-hidden rounded-3xl border border-line bg-paper shadow-(--shadow-panel) md:right-6.5 md:bottom-6.5 md:left-auto md:w-[392px]'
     >
       <div className='flex items-center justify-between bg-forest px-5 py-4 text-on-forest'>
         <div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { IconButton } from '@/components/ui/IconButton';
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -25,12 +26,8 @@ export default function ThemeToggle() {
   }
 
   return (
-    <button
-      onClick={toggle}
-      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-      className='grid h-9.5 w-9.5 place-items-center rounded-pill border border-line bg-paper-2 text-[15px] text-ink transition duration-250 hover:-translate-y-0.5 hover:border-clay hover:bg-clay hover:text-on-clay'
-    >
+    <IconButton onClick={toggle} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
       ◐
-    </button>
+    </IconButton>
   );
 }

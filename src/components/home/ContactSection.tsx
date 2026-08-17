@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { site } from '@/lib/site';
 import { Reveal } from '@/components/ui/Reveal';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export default function ContactSection() {
   return (
@@ -9,9 +10,9 @@ export default function ContactSection() {
         <Reveal variant='rvZ'>
           <div className='grid gap-9 rounded-panel bg-ink p-6 text-paper md:grid-cols-2 md:gap-14 md:p-14'>
             <div>
-              <span className='mb-3.5 inline-block rounded-pill bg-ochre px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-ochre uppercase'>
+              <Eyebrow tone='ochre' className='mb-3.5'>
                 06 / Contact
-              </span>
+              </Eyebrow>
               <h2 className='font-display text-[clamp(32px,4vw,50px)] leading-none font-bold tracking-[-0.04em]'>
                 Let&rsquo;s{' '}
                 <span className='font-serif font-normal text-ochre italic'>talk</span>

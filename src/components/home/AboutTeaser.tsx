@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import CountUp from '@/components/ui/CountUp';
 import { Reveal, Stagger } from '@/components/ui/Reveal';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 
 const stats = [
   { n: 3, suffix: '+', label: 'Years shipping', cls: 'bg-clay text-on-clay' },
   { n: 4, suffix: '', label: 'Sites in production', cls: 'bg-forest text-on-forest' },
   { n: 1, suffix: '', label: 'Mobile app', cls: 'bg-ochre text-on-ochre' },
-  { n: 4, suffix: '', label: 'Industries', cls: 'bg-plum text-[#FFF0F5]' },
+  { n: 4, suffix: '', label: 'Industries', cls: 'bg-plum text-on-plum' },
 ];
 
 export default function AboutTeaser() {
@@ -16,9 +17,7 @@ export default function AboutTeaser() {
         <Reveal variant='rv'>
           <div className='grid items-start gap-9 rounded-panel border border-line-soft bg-paper-2 p-6 md:grid-cols-[0.9fr_1.1fr] md:gap-14 md:p-14'>
             <div>
-              <span className='mb-3.5 inline-block rounded-pill bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
-                03 / About
-              </span>
+              <Eyebrow className='mb-3.5'>03 / About</Eyebrow>
               <h2 className='max-w-[14ch] font-display text-[clamp(32px,4vw,50px)] leading-none font-bold tracking-[-0.04em]'>
                 A bit about me
               </h2>

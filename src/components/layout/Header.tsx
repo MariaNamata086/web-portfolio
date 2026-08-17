@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { nav } from '@/lib/site';
 import ThemeToggle from './ThemeToggle';
 import MobileSheet from './MobileSheet';
+import { IconButton } from '@/components/ui/IconButton';
 
 export default function Header() {
   const [stuck, setStuck] = useState(false);
@@ -54,14 +55,14 @@ export default function Header() {
 
           <div className='flex items-center gap-2.5'>
             <ThemeToggle />
-            <button
+            <IconButton
               onClick={() => setOpen(true)}
               aria-label='Open menu'
               aria-expanded={open}
-              className='grid h-9.5 w-9.5 place-items-center rounded-pill border border-line bg-paper-2 text-[15px] text-ink md:hidden'
+              className='md:hidden'
             >
               ☰
-            </button>
+            </IconButton>
             <Link
               href='/contact'
               className='hidden rounded-pill bg-forest px-5 py-2.5 text-[14px] font-medium text-on-forest transition duration-250 hover:-translate-y-0.5 hover:bg-clay hover:text-on-clay md:inline-block'

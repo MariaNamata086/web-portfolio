@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import { PillButton } from '@/components/ui/PillButton';
 
 export const metadata: Metadata = { title: 'Page not found' };
 
@@ -18,18 +18,16 @@ export default function NotFound() {
           slightly wrong.
         </p>
         <div className='mt-8 flex flex-wrap justify-center gap-2.5'>
-          <Link href='/' className='rounded-pill border border-clay bg-clay px-5.5 py-3 text-[15px] font-medium text-on-clay transition hover:border-ink hover:bg-ink hover:text-paper'>
-            Back to home
-          </Link>
-          <Link href='/#work' className='rounded-pill border border-line px-5.5 py-3 text-[15px] font-medium transition hover:border-ink hover:bg-ink hover:text-paper'>
+          <PillButton href='/'>Back to home</PillButton>
+          <PillButton href='/#work' variant='outline'>
             See the work
-          </Link>
-          <Link href='/notes' className='rounded-pill border border-line px-5.5 py-3 text-[15px] font-medium transition hover:border-ink hover:bg-ink hover:text-paper'>
+          </PillButton>
+          <PillButton href='/notes' variant='outline'>
             Read the notes
-          </Link>
-          <Link href='/contact' className='rounded-pill border border-line px-5.5 py-3 text-[15px] font-medium transition hover:border-ink hover:bg-ink hover:text-paper'>
+          </PillButton>
+          <PillButton href='/contact' variant='outline'>
             Get in touch
-          </Link>
+          </PillButton>
         </div>
         <div className='mt-8.5 font-mono text-[10.5px] tracking-[0.09em] text-ink-faint uppercase'>
           If a link on this site sent you here, I would like to know

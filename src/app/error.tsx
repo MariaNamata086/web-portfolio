@@ -1,7 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect } from 'react';
+import { Eyebrow } from '@/components/ui/Eyebrow';
+import { PillButton } from '@/components/ui/PillButton';
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   useEffect(() => {
@@ -11,9 +12,9 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   return (
     <div className='grid min-h-[70vh] place-items-center px-[22px] py-16 text-center md:px-10'>
       <div>
-        <span className='mb-4.5 inline-block rounded-pill bg-danger-soft px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-danger uppercase'>
+        <Eyebrow tone='danger' className='mb-4.5'>
           Something broke
-        </span>
+        </Eyebrow>
         <h1 className='max-w-[18ch] font-display text-[clamp(30px,4.6vw,52px)] leading-[1.02] font-extrabold tracking-[-0.04em]'>
           That is my fault, not yours
         </h1>
@@ -22,18 +23,10 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
           know, because this is exactly the sort of thing this site is supposed to get right.
         </p>
         <div className='mt-8 flex flex-wrap justify-center gap-2.5'>
-          <button
-            onClick={reset}
-            className='cursor-pointer rounded-pill bg-clay px-5.5 py-3 text-[15px] font-medium text-on-clay transition hover:bg-ink hover:text-paper'
-          >
-            Try again
-          </button>
-          <Link
-            href='/'
-            className='rounded-pill border border-line px-5.5 py-3 text-[15px] font-medium transition hover:bg-ink hover:text-paper'
-          >
+          <PillButton onClick={reset}>Try again</PillButton>
+          <PillButton href='/' variant='outline'>
             Back to home
-          </Link>
+          </PillButton>
         </div>
         {error.digest && (
           <p className='mt-8 font-mono text-[10.5px] tracking-[0.09em] text-ink-faint uppercase'>

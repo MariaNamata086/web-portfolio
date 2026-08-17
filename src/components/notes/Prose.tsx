@@ -34,7 +34,7 @@ export function MetricBand({ items }: { items: { value: string; label: string }[
     'bg-clay text-on-clay',
     'bg-forest text-on-forest',
     'bg-ochre text-on-ochre',
-    'bg-plum text-[#FFF0F5]',
+    'bg-plum text-on-plum',
   ];
   return (
     <div className='my-9 grid gap-3 sm:grid-cols-2 md:grid-cols-4'>

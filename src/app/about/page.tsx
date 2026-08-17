@@ -5,6 +5,7 @@ import portrait from '@public/maria.png';
 import { story, howIWork, lessons, beliefs } from '@/content/about';
 import { site } from '@/lib/site';
 import { Reveal } from '@/components/ui/Reveal';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -28,9 +29,7 @@ export default function AboutPage() {
     <div className='mx-auto max-w-(--maxw) px-5.5 md:px-10'>
       <section className='grid items-end gap-9 pt-10 pb-10 md:grid-cols-[1.25fr_0.8fr] md:gap-14 md:pt-16 md:pb-14'>
         <div>
-          <span className='mb-4.5 inline-block rounded-(--r-pill) bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
-            About
-          </span>
+          <Eyebrow className='mb-4.5'>About</Eyebrow>
           <h1 className='font-display text-[clamp(42px,5.8vw,74px)] leading-[0.96] font-extrabold tracking-[-0.045em]'>
             Most of what I know
             <br />
@@ -129,9 +128,9 @@ export default function AboutPage() {
       <section className='border-t border-line py-16 md:py-19'>
         <Reveal variant='rvZ'>
           <div className='rounded-panel bg-forest p-6 text-on-forest md:p-14'>
-            <span className='mb-4.5 inline-block rounded-pill bg-ochre px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-ochre uppercase'>
+            <Eyebrow tone='ochre' className='mb-4.5'>
               What I am looking for
-            </span>
+            </Eyebrow>
             <h2 className='max-w-[18ch] font-display text-[clamp(28px,3.4vw,42px)] leading-[1.02] font-bold tracking-[-0.04em]'>
               A team that reviews code and cares whether the thing works
             </h2>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Reveal } from '@/components/ui/Reveal';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 
 const presets = [
   { name: 'Clay', clay: '#C2401A', forest: '#174E33' },
@@ -60,9 +61,7 @@ export default function Playground() {
       <div className='mx-auto max-w-site'>
         <div className='mb-12 flex flex-wrap items-end justify-between gap-10'>
           <Reveal variant='rvL'>
-            <span className='mb-3.5 inline-block rounded-pill bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
-              02 / Playground
-            </span>
+            <Eyebrow className='mb-3.5'>02 / Playground</Eyebrow>
             <h2 className='max-w-[14ch] font-display text-[clamp(32px,4vw,50px)] leading-none font-bold tracking-[-0.04em]'>
               Change this page
             </h2>

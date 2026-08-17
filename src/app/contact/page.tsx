@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import ContactForm from '@/components/contact/ContactForm';
 import { site } from '@/lib/site';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -26,9 +27,7 @@ export default function ContactPage() {
   return (
     <div className='mx-auto max-w-site px-5.5 md:px-10'>
       <header className='max-w-[22ch] pt-15 pb-11'>
-        <span className='mb-4.5 inline-block rounded-pill bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
-          Contact
-        </span>
+        <Eyebrow className='mb-4.5'>Contact</Eyebrow>
         <h1 className='font-display text-[clamp(42px,5.6vw,70px)] leading-[0.97] font-extrabold tracking-[-0.045em]'>
           Start a <span className='font-serif font-normal text-clay italic'>conversation</span>
         </h1>

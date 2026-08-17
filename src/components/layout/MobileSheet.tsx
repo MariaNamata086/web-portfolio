@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { nav } from '@/lib/site';
+import { IconButton } from '@/components/ui/IconButton';
 
 export default function MobileSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,13 +53,9 @@ export default function MobileSheet({ open, onClose }: { open: boolean; onClose:
         <span className='font-display text-[19px] font-extrabold tracking-[-0.03em]'>
           maria<em className='font-serif font-normal text-clay not-italic'>.</em>
         </span>
-        <button
-          onClick={onClose}
-          aria-label='Close menu'
-          className='grid h-9.5 w-9.5 place-items-center rounded-pill border border-line bg-paper-2 text-ink'
-        >
+        <IconButton onClick={onClose} aria-label='Close menu'>
           ×
-        </button>
+        </IconButton>
       </div>
       <nav className='flex flex-col'>
         {nav.map((n) => (

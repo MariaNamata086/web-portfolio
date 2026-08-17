@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notes } from '@/content/notes';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 
 export const metadata: Metadata = {
   title: 'Notes',
@@ -18,9 +19,7 @@ export default function NotesIndex() {
   return (
     <div className='mx-auto max-w-site px-5.5 md:px-10'>
       <header className='pt-16 pb-10'>
-        <span className='mb-4.5 inline-block rounded-pill bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
-          Notes
-        </span>
+        <Eyebrow className='mb-4.5'>Notes</Eyebrow>
         <h1 className='font-display text-[clamp(40px,5.6vw,68px)] leading-[0.98] font-extrabold tracking-[-0.045em]'>
           Things I worked out
           <br />

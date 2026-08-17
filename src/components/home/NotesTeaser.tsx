@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notes } from '@/content/notes';
 import { Reveal, Stagger } from '@/components/ui/Reveal';
+import { Eyebrow } from '@/components/ui/Eyebrow';
 
 const tints = ['bg-clay-soft', 'bg-forest-soft', 'bg-ochre-soft'];
 
@@ -10,9 +11,7 @@ export default function NotesTeaser() {
       <div className='mx-auto max-w-site'>
         <div className='mb-12 flex flex-wrap items-end justify-between gap-10'>
           <Reveal variant='rvL'>
-            <span className='mb-3.5 inline-block rounded-pill bg-clay px-3 py-1.5 font-mono text-[10.5px] tracking-[0.14em] text-on-clay uppercase'>
-              05 / Notes
-            </span>
+            <Eyebrow className='mb-3.5'>05 / Notes</Eyebrow>
             <h2 className='max-w-[16ch] font-display text-[clamp(32px,4vw,50px)] leading-none font-bold tracking-[-0.04em]'>
               Things I worked out the hard way
             </h2>
