@@ -17,25 +17,25 @@ export default function Hero() {
               {site.role} · {site.location}
             </div>
 
-            <h1 className='font-display text-[clamp(44px,6.1vw,80px)] leading-[0.95] font-extrabold tracking-[-0.045em]'>
+            <h1 className='font-display text-[clamp(44px,6.1vw,90px)] leading-[0.95] font-extrabold bg-sky-200 pb-2 tracking-[-0.045em]'>
               <span className='line-mask'>
                 <i>Hi, I&rsquo;m Maria.</i>
               </span>
               <span className='line-mask'>
                 <i>
-                  I build the{' '}
-                  <span className='font-serif font-normal text-clay italic'>websites</span>
+                  I build {' '}
+                  <span className='font-serif font-normal text-clay italic'>digital experiences</span>
                 </i>
               </span>
               <span className='line-mask'>
-                <i>people actually use.</i>
+                <i>people enjoy using</i>
               </span>
             </h1>
 
             <p className='fade-up mt-6 max-w-130 text-[19px] leading-[1.55] text-ink-soft' style={{ animationDelay: '500ms' }}>
               I take a Figma file and hand back something live. Three years of React, Next.js and TypeScript, shipping for a
               safari operator, a farm training centre and an e-commerce platform. Everything I build gets opened on a slow
-              connection before I call it finished, because that is the connection most of my visitors are on.
+              connection before I call it finished, because that is the connection some of my visitors are on.
             </p>
 
             <div className='fade-up mt-8 flex flex-wrap gap-3' style={{ animationDelay: '620ms' }}>
@@ -61,7 +61,7 @@ export default function Hero() {
             <div className='relative aspect-5/6 overflow-hidden rounded-t-[170px] rounded-b-[20px] border border-line bg-paper-3'>
               <Image src={portrait} alt='Maria Namata' priority sizes='(max-width: 900px) 260px, 340px' className='h-full w-full object-cover object-top' />
             </div>
-            <div className='mt-3.5 flex justify-between font-mono text-[10.5px] tracking-[0.07em] text-ink-faint uppercase'>
+            <div className='mt-3.5 flex justify-between font-mono font-semibold text-[10.5px] tracking-[0.07em] text-ink-faint uppercase'>
               <span>Open to remote</span>
               <span>UTC+3</span>
             </div>
