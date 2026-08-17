@@ -17,7 +17,7 @@ export default function Hero() {
               {site.role} · {site.location}
             </div>
 
-            <h1 className='font-display text-[clamp(44px,6.1vw,90px)] leading-[0.95] font-extrabold bg-sky-200 pb-2 tracking-[-0.045em]'>
+            <h1 className='font-display text-[clamp(44px,6.1vw,90px)] leading-[0.95] font-extrabold pb-2 tracking-[-0.045em]'>
               <span className='line-mask'>
                 <i>Hi, I&rsquo;m Maria.</i>
               </span>
