@@ -26,12 +26,12 @@ const faqs = [
 export default function ContactPage() {
   return (
     <div className='mx-auto max-w-site px-5.5 md:px-10'>
-      <header className='max-w-[22ch] pt-15 pb-11'>
+      <header className='max-w-full flex flex-col items-center pt-15 pb-11'>
         <Eyebrow className='mb-4.5'>Contact</Eyebrow>
-        <h1 className='font-display text-[clamp(42px,5.6vw,70px)] leading-[0.97] font-extrabold tracking-[-0.045em]'>
-          Start a <span className='font-serif font-normal text-clay italic'>conversation</span>
+        <h1 className='font-display tracking-wide text-[clamp(42px,5.6vw,70px)] leading-[0.97] font-extrabold '>
+          Start a <span className='font-serif tracking-wide font-normal text-clay italic'>conversation</span>
         </h1>
-        <p className='mt-5 max-w-[52ch] text-[20px] text-ink-soft'>
+        <p className='mt-5 max-w-[52ch] tracking-wide text-center text-[20px] text-ink-soft'>
           Pick what fits and the form will ask for the right things. I read every message myself and reply within a day,
           usually sooner.
         </p>
