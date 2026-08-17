@@ -7,7 +7,7 @@ versions as the Cinnamon Holidays project, so nothing here should feel unfamilia
 
 ```bash
 npm install
-cp .env.example .env.local   # fill in when you wire up the form and the chatbot
+cp .env.example .env.local   # fill in when you wire up the chatbot; the form needs no key
 npm run dev
 ```
 
@@ -34,7 +34,6 @@ do differently.
 | `/notes` | Index of all posts, published and planned |
 | `/notes/[slug]` | A post. Statically generated |
 | `/cv` | 308 redirect to the PDF, so the URL stays stable |
-| `/api/contact` | Form handler, Resend |
 | `/api/chat` | Chatbot endpoint, Anthropic |
 
 ## Where things live
@@ -97,9 +96,11 @@ had the effect of switching the hero off on the author's own connection.
 five seconds fails WCAG 2.2.2 without one. It also pauses on hover and on focus, and
 starts paused for reduced motion.
 
-**The contact form has a honeypot and a timing check**, both repeated server side.
-When either trips, the visitor still sees the normal success screen. A bot that gets
-an error learns to retry; a bot that gets a success learns nothing.
+**The contact form has a honeypot and a timing check**, both client side, then posts
+straight to `formsubmit.co/ajax/<email>` with `_template: table` so the delivered
+mail reads as a table. When either check trips, the visitor still sees the normal
+success screen. A bot that gets an error learns to retry; a bot that gets a success
+learns nothing.
 
 **The chatbot has no vector database and does not need one.** The whole corpus is a
 few thousand tokens and goes into the system prompt, assembled from the same content
@@ -161,6 +162,7 @@ Deliberately not done yet, in rough priority order:
 - [ ] Waterfall screenshot for the first post
 - [ ] Write posts two and three
 - [ ] Favicon and OG image routes
-- [ ] Wire Resend and Anthropic keys, then test both failure paths
+- [ ] Confirm the formsubmit.co activation email, then wire the Anthropic key and
+      test both failure paths
 - [ ] Accessibility pass: keyboard only, then a screen reader
 - [ ] Lighthouse CI

@@ -16,7 +16,7 @@ const faqs = [
     q: 'What does a project cost?',
     a: [
       'I do not publish a price, because I have never seen one that survived contact with a real brief. A five page site for a training centre and a booking platform with payments are both "a website", and quoting either from a list would mean overcharging one of you.',
-      'How it actually works: you tell me what the site has to do, we have a short conversation to fill in the gaps, and I send a fixed quote with what is included and what is not. No hourly billing, so the number does not move while I work. If the scope changes later we agree the difference before I start on it.',
+      'How it actually works: you tell me what the site has to do, we have a short conversation to fill in the gaps, and I send a fixed quote with what is included and what is not. If the scope changes later we agree on the difference before I start on it.',
       'If it helps, say what you have in mind when you write. I will tell you straight away whether it is realistic, rather than letting you find out after three emails.',
     ],
   },

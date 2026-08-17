@@ -167,7 +167,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
     <section className='border-t border-line py-14 md:py-19'>
       <Reveal variant='rv'>
         <div className='grid items-start gap-8 md:grid-cols-[0.85fr_1.15fr] md:gap-14'>
-          <h2 className='max-w-[18ch] font-display text-[clamp(28px,3.4vw,42px)] leading-[1.02] font-bold tracking-[-0.04em]'>
+          <h2 className='max-w-[15ch] font-display text-[clamp(28px,3.4vw,42px)] leading-[1.02] font-bold tracking-[-0.04em]'>
             {title}
           </h2>
           <div>{children}</div>

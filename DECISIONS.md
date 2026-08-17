@@ -100,8 +100,8 @@ the product.
 
 ## 6. Contact spam: honeypot and timing, no CAPTCHA
 
-**Chose:** a hidden `website` field and a three second minimum, both checked on
-the client and again on the server. Both show the normal success screen.
+**Chose:** a hidden `website` field and a three second minimum, checked client side
+before the form posts to formsubmit.co. Both show the normal success screen.
 
 **Instead of:** reCAPTCHA or Turnstile.
 

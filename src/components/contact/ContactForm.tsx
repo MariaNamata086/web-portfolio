@@ -56,12 +56,26 @@ export default function ContactForm() {
 
     setState('sending');
     try {
-      const res = await fetch('/api/contact', {
+      const payload: Record<string, string> = {
+        Name: data.name!,
+        Email: data.email!,
+        'What this is about': intent === 'role' ? 'A role' : intent === 'project' ? 'A project' : 'Something else',
+      };
+      if (data.org) payload[shape.org] = data.org;
+      if (intent === 'project' && data.budget) payload.Budget = data.budget;
+      if (shape.a && data.a) payload[shape.a] = data.a;
+      if (shape.b && data.b) payload[shape.b] = data.b;
+      payload[shape.msg] = data.message!;
+      payload._subject = `Portfolio: ${intent} from ${data.name}`;
+      payload._template = 'table';
+
+      const res = await fetch(`https://formsubmit.co/ajax/${site.email}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, intent }),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error('failed');
+      const json = await res.json();
+      if (!res.ok || json.success !== 'true') throw new Error('failed');
       setState('done');
     } catch {
       setState('error');
@@ -72,7 +86,7 @@ export default function ContactForm() {
     return (
       <div>
         <div className='mb-5 grid h-14.5 w-14.5 place-items-center rounded-full bg-forest text-[26px] text-on-forest'>✓</div>
-        <h2 className='font-display text-[30px] font-bold tracking-[-0.03em]'>Got it, thank you</h2>
+        <h2 className='font-display text-[30px] font-bold tracking-[-0.03em]'>Got it, thank you!</h2>
         <p className='mt-3 max-w-[46ch] text-ink-soft'>
           Your message is in my inbox. I have sent a copy to the address you gave, so you have a record of what you wrote.
         </p>
@@ -134,12 +148,12 @@ export default function ContactForm() {
       <div className='grid gap-3.5 sm:grid-cols-2'>
         <div className='mb-4.5'>
           <label className={label} htmlFor='name'>Your name</label>
-          <input id='name' name='name' className={`${field} ${errors.name ? bad : ''}`} aria-invalid={errors.name} placeholder='Jane Okello' />
+          <input id='name' name='name' className={`${field} ${errors.name ? bad : ''}`} aria-invalid={errors.name} placeholder='Jane Doe' />
           {errors.name && <p role='alert' className='mt-2 text-[14px] text-danger'>Please add your name so I know who I am replying to.</p>}
         </div>
         <div className='mb-4.5'>
           <label className={label} htmlFor='email'>Email</label>
-          <input id='email' name='email' type='email' className={`${field} ${errors.email ? bad : ''}`} aria-invalid={errors.email} placeholder='jane@company.com' />
+          <input id='email' name='email' type='email' className={`${field} ${errors.email ? bad : ''}`} aria-invalid={errors.email} placeholder='janedoe@example.com' />
           {errors.email && <p role='alert' className='mt-2 text-[14px] text-danger'>That does not look like an email address.</p>}
         </div>
       </div>
@@ -185,7 +199,7 @@ export default function ContactForm() {
       >
         {state === 'sending' ? 'Sending…' : shape.btn}
       </button>
-      <p className='mt-4 text-[13.5px] leading-[1.5] text-ink-faint'>
+      <p className='mt-4 text-[13.5px] leading-normal text-ink-faint'>
         Your message goes straight to my inbox. Nothing is stored anywhere else, and I will not add you to anything.
       </p>
     </form>
