@@ -1,6 +1,6 @@
 import type { StaticImageData } from 'next/image';
-import cinnamon from '@public/work/cinnamon.jpg';
-import afriven from '@public/work/afriven.jpg';
+import cinnamon from '@public/work/cinnamon.png';
+import afriven from '@public/work/afriven.png';
 import stjoseph from '@public/work/stjoseph.jpg';
 import cashdash from '@public/work/cashdash.jpg';
 
@@ -19,8 +19,8 @@ export const projects: Project[] = [
   {
     slug: 'cinnamon-holidays-safaris',
     title: 'Cinnamon Holidays Safaris',
-    role: 'Design + build, solo · 2025',
-    body: 'A safari operator with a great story and no good way to tell it. I built the whole site on my own: destination and package pages, an experiences section, and an inquiry form that lands in their inbox instead of a void. It is also the site that taught me to profile my own work.',
+    role: 'Design + build, solo · 2026',
+    body: 'A safari operator with a great story and no good way to tell it. I built the whole site on my own: destination and package pages, an experiences section, and inquiry forms that land in their inbox instead of a void. It is also the site that taught me to profile my own work.',
     tags: ['Next.js', 'Tailwind', 'SEO', 'Vercel'],
     liveUrl: 'https://cinnamonholidayssafaris.com',
     shot: { src: cinnamon, alt: 'Cinnamon Holidays Safaris homepage' },
